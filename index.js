@@ -87,8 +87,8 @@ bot.on('interactionCreate', async (inter)=>{
         console.log(path)
         path = require(path)
         path(inter, getLocalisation(data.language))
-                .catch((err) => handleError(inter, err, getLocalisation(data.language)))
-    } catch(err) { handleError(inter, err, getLocalisation(data.language)) }
+                .catch((err) => handleError(inter, err, getLocalisation(data.language)));
+    } catch(err) { handleError(inter, err, getLocalisation(data.language)); }
 });
 
 bot.login(process.env.token);
