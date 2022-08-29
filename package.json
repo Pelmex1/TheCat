@@ -1,0 +1,26 @@
+{
+  "name": "thecat-bot",
+  "version": "1.0.0",
+  "description": "Please do not the cat",
+  "main": "index.js",
+  "scripts": {
+    "run": "node .",
+    "refresh-slash": "node . --refresh-slash"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazyCat2/TheCat.git"
+  },
+  "author": "LazyCat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LazyCat2/TheCat/issues"
+  },
+  "homepage": "https://github.com/LazyCat2/TheCat#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.35.6",
+    "discord.js": "^14.2.0",
+    "dotenv": "^16.0.1",
+    "events": "^3.3.0"
+  }
+}
