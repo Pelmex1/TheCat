@@ -65,8 +65,8 @@ module.exports = new SlashCommandBuilder()
         )
         .addSubcommand(sub => sub
             .setName('buttons-add')
-            .setDescriptionLocalization('ru', 'Эту роль получат новые участники')
-            .setDescriptionLocalization('ua', 'Цю роль отримають нові учасники')
+            .setDescriptionLocalization('ru', 'кнопки-добавить')
+            .setDescriptionLocalization('ua', 'кнопки-добавити')
 		       
 
             .setDescription('Add role to buttons')
