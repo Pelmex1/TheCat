@@ -6,7 +6,7 @@
     "empty_message": "В цьому повідомленні немає тексту",
     "settings_placeholder": "Вибери те, що потрібно змінити",
     "role_give_label": "Видача ролі",
-    "role_give_description": "Вибери, які ролі участники можуть получити через /get-role",
+    "role_give_description": "Вибери, які ролі учасники можуть получити через /get-role",
     "ping": "Пінг",
     "ms": "мс",
     "guilds": "сервери",
