@@ -7,4 +7,4 @@ module.exports = new SlashCommandBuilder()
 
     .setDescription('Information about this bot')
     .setDescriptionLocalization('ru', 'Информация об этом боте')
-    .setDescriptionLocalization('ua', 'Дані про цього бота')
+    .setDescriptionLocalization('ua', 'Дані про цього бота');
