@@ -3,4 +3,5 @@ const { ContextMenuCommandBuilder, ApplicationCommandType } = require('discord.j
 module.exports = new ContextMenuCommandBuilder()
 	.setName('Avatar')
     .setNameLocalization('ru', 'Аватар')
+    .setNameLocalization('ua', 'Аватар')
 	.setType(ApplicationCommandType.User);
