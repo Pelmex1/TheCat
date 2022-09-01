@@ -3,8 +3,8 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = new SlashCommandBuilder()
     .setName('info')
     .setNameLocalization('ru', 'инфо')
-    .setNameLocalization('ru', 'інфо')
+    .setNameLocalization('uk', 'інфо')
 
     .setDescription('Information about this bot')
     .setDescriptionLocalization('ru', 'Информация об этом боте')
-    .setDescriptionLocalization('ua', 'Дані про цього бота');
+    .setDescriptionLocalization('uk', 'Дані про цього бота');

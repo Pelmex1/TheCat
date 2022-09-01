@@ -11,25 +11,25 @@ module.exports = new SlashCommandBuilder()
     .addSubcommand(sub => sub
             .setName('language')
             .setNameLocalization('ru', 'язык')
-            .setNameLocalization('ua', 'мова')
+            .setNameLocalization('uk', 'мова')
 
             .setDescription('Change bot language for this server')
             .setDescriptionLocalization('ru', 'Поменять язык бота для этого сервера')
-            .setDescriptionLocalization('ua', 'Змінити мову бота для цього серверу')
+            .setDescriptionLocalization('uk', 'Змінити мову бота для цього серверу')
 
         .addStringOption(op => op
                 .setName('language')
                 .setNameLocalization('ru', 'язык')
-                .setNameLocalization('ua','мова')
+                .setNameLocalization('uk','мова')
 
                 .setDescription('New bot\'s language')
                 .setDescriptionLocalization('ru', 'Новый язык бота')
-                .setDescriptionLocalization('ua', 'Нова мова бота')
+                .setDescriptionLocalization('uk', 'Нова мова бота')
 
                 .addChoices(
                     { name: 'English', value: 'en' },
                     { name: 'Русский', value: 'ru' },
-	            { name: 'Українська, value: 'ua' }
+	            { name: 'Українська', value: 'uk' }
                 )
 
                 .setRequired(true)
@@ -38,49 +38,49 @@ module.exports = new SlashCommandBuilder()
     .addSubcommandGroup(group => group
         .setName('auto-role')
         .setNameLocalization('ru', 'авто-роль')
-        .setNameLocalization('ua', 'авто-роль')
+        .setNameLocalization('uk', 'авто-роль')
 			
         .setDescription('d')
 
         .addSubcommand(sub => sub
             .setName('join')
             .setNameLocalization('ru', 'заход')
-            .setNameLocalization('ua', 'приєднування')
+            .setNameLocalization('uk', 'приєднування')
             
             .setDescription('Give role to members when they joined')
             .setDescriptionLocalization('ru', 'Давать роль участникам когда они заходят')
-            .setDescriptionLocalization('ua', 'Давати роль учасникам коли вони заходять')
+            .setDescriptionLocalization('uk', 'Давати роль учасникам коли вони заходять')
 
             .addRoleOption(option => option
                 .setName('role')
                 .setNameLocalization('ru', 'роль')
-                .setNameLocalization('ua', 'роль')
+                .setNameLocalization('uk', 'роль')
 
                 .setDescription('This role will be given to new members')
                 .setDescriptionLocalization('ru', 'Эту роль получат новые участники')
-		.setDescriptionLocalization('ua', 'Цю роль отримають нові учасники')	   
+		.setDescriptionLocalization('uk', 'Цю роль отримають нові учасники')
 
                 .setRequired(true)
             )
         )
         .addSubcommand(sub => sub
             .setName('buttons-add')
-            .setDescriptionLocalization('ru', 'кнопки-добавить')
-            .setDescriptionLocalization('ua', 'кнопки-добавити')
+            .setNameLocalization('ru', 'кнопки-добавить')
+            .setNameLocalization('uk', 'кнопки-добавити')
 		       
 
             .setDescription('Add role to buttons')
             .setDescriptionLocalization('ru', 'Добавить роль в кнопки')
-            .setDescriptionLocalization('ua', 'Добавити роль в кнопки')
+            .setDescriptionLocalization('uk', 'Добавити роль в кнопки')
 
             .addRoleOption(option => option
                 .setName('role')
                 .setNameLocalization('ru', 'роль')
-	        .setNameLocalization('ua', 'роль')
+	        .setNameLocalization('uk', 'роль')
 
                 .setDescription('Members are able to get this role via buttons')
                 .setDescriptionLocalization('ru', 'Участники смогут получить эту роль через кнопки')
-		.setDescriptionLocalization('ua', 'Учасники зможуть получити цю роль через кнопки')
+		.setDescriptionLocalization('uk', 'Учасники зможуть получити цю роль через кнопки')
 
                 .setRequired(true)
             )
@@ -88,49 +88,49 @@ module.exports = new SlashCommandBuilder()
         .addSubcommand(sub => sub
             .setName('buttons-remove')
             .setNameLocalization('ru', 'кнопки-убрать')
-            .setNameLocalization('ua', 'кнопки-прибрати')
+            .setNameLocalization('uk', 'кнопки-прибрати')
 
             .setDescription('Remove role from buttons')
             .setDescriptionLocalization('ru', 'Убрать роль из кнопки')
-	    .setDescriptionLocalization('ua', 'Прибрати роль з кнопки')
+	    .setDescriptionLocalization('uk', 'Прибрати роль з кнопки')
         )
     )
     .addSubcommand(sub => sub
         .setName('show')
         .setNameLocalization('ru', 'показать')
-	.setNameLocalization('ua', 'показати')
+	.setNameLocalization('uk', 'показати')
 
         .setDescription('Shows current bot settings')
         .setDescriptionLocalization('ru', 'Показывает текущие настройки бота')
-        .setDescriptionLocalization('ua', 'Показує настройки бота')
+        .setDescriptionLocalization('uk', 'Показує настройки бота')
     )
     .addSubcommandGroup(group => group
         .setName('verify')
         .setNameLocalization('ru', 'верефикация')
-        .setNameLocalization('ua', 'веріфікація')
+        .setNameLocalization('uk', 'веріфікація')
 
 
         .setDescription('Verification is used to prevent raids using self-bots')
         .setDescriptionLocalization('ru', 'Верефикация предотвращает рейды через селф-ботов')
-	.setDescriptionLocalization('ua', 'Веріфікація запобігає рейди селф-ботами')
+	.setDescriptionLocalization('uk', 'Веріфікація запобігає рейди селф-ботами')
         
         .addSubcommand(sub => sub
             .setName('toggle')
             .setNameLocalization('ru', 'переключить')
-            .setNameLocalization('ua', 'переключити')
+            .setNameLocalization('uk', 'переключити')
 
             .setDescription('Enable verification to prevent raids using self-bots')
             .setDescriptionLocalization('ru', 'Включите верефикацию, чтобы предотвратить рейды через селф-ботов')
-            .setDescriptionLocalization('ua', 'Включіть веріфікацію щоб запобігти рейдам селф-ботами')
+            .setDescriptionLocalization('uk', 'Включіть веріфікацію щоб запобігти рейдам селф-ботами')
         )
         .addSubcommand(sub => sub
             .setName('length')
             .setNameLocalization('ru', 'длина')
-	    .setNameLocalization('ua', 'довжина')
+	    .setNameLocalization('uk', 'довжина')
 
             .setDescription('Change length of captcha')
             .setDescriptionLocalization('ru', 'Сменить длину капчи')
-	    .setDescriptionLocalization('ua', 'Змінити довжину капчі')
+	    .setDescriptionLocalization('uk', 'Змінити довжину капчі')
 
 
             .addIntegerOption(option => option
@@ -139,10 +139,10 @@ module.exports = new SlashCommandBuilder()
 
                 .setName('lenght')
                 .setNameLocalization('ru', 'длина')
-	        .setNameLocalization('ua', 'довжина')
+	        .setNameLocalization('uk', 'довжина')
 
                 .setDescription('Amount of numbers in captcha')
-                .setDescriptionLocalization('ua', 'Кількість цифр к капчі')
+                .setDescriptionLocalization('uk', 'Кількість цифр к капчі')
 	        .setDescriptionLocalization('ru', 'Длина цифр в капче')
 
                 .setRequired(true)
@@ -151,10 +151,10 @@ module.exports = new SlashCommandBuilder()
         .addSubcommand(sub => sub
             .setName('send')
             .setNameLocalization('ru', 'отправить')
-            .setNameLocalization('ua', 'відправити')
+            .setNameLocalization('uk', 'відправити')
 
             .setDescription('Sends messsage with button for verifycation')
             .setDescriptionLocalization('ru', 'Отправляет сообщение с кнопкой для верефикации')
-	    .setDescriptionLocalization('ua', 'Відправляє повідомлення з кнопкою для веріфікації')
+	    .setDescriptionLocalization('uk', 'Відправляє повідомлення з кнопкою для веріфікації')
         )
     )

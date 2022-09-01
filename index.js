@@ -59,6 +59,7 @@ bot.on('ready', async ()=>{
 })
 
 bot.on('interactionCreate', async (inter)=>{
+    console.log(inter.commandName)
     data = (await db
         .from('servers')
         .select('*')
