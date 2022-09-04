@@ -2,7 +2,6 @@ require('dotenv').config();
 const
     { IntentsBitField, Client } = require('discord.js'),
     fs = require('fs'),
-    { handleError, getLocalisation, refreshGuild } = require('./utils.js'),
     { createClient } = require('@supabase/supabase-js'),
 
     bot = new Client({
@@ -19,7 +18,9 @@ const
         process.env.db_url,
         process.env.db_key
     );
+
 module.exports = {bot: bot, startTime: Math.round(Date.now()/1000), db: db}
+const { handleError, getLocalisation, refreshGuild } = require('./utils.js')
 black_list = []
 if (process.argv.includes('--refresh-slash')) {
     require('./slash/init.js');
@@ -75,11 +76,12 @@ bot.on('interactionCreate', async (inter)=>{
     } catch(err) { handleError(inter, err, getLocalisation(data.language)); }
 });
 
-bot.on('guildMemberAdd', member => {
-    data = (await db
+bot.on('guildMemberAdd', async member => {
+    data = await db
         .from('servers')
         .select('*')
-        .match({ id: member.guildId })).data[0]
+        .match({ id: member.guildId })
+    data= data.data[0]
 
     role= member.guild.roles.cache.find(role => role.id === data['role-join'])
     if (role) { 
@@ -87,6 +89,6 @@ bot.on('guildMemberAdd', member => {
     }
 });
 
-client.on("guildCreate", refreshGuild)
+bot.on("guildCreate", refreshGuild)
 
 bot.login(process.env.token);
