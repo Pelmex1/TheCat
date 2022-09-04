@@ -2,7 +2,7 @@ require('dotenv').config();
 const
     { IntentsBitField, Client } = require('discord.js'),
     fs = require('fs'),
-    { handleError, getLocalisation } = require('./utils.js'),
+    { handleError, getLocalisation, refreshGuild } = require('./utils.js'),
     { createClient } = require('@supabase/supabase-js'),
 
     bot = new Client({
@@ -37,29 +37,11 @@ start = Date.now();
 bot.on('ready', async ()=>{
     await bot.user.setPresence({ activities: [{ name: 'поедании вискаса', type: 5 }]});
     duration = Date.now() - start;
-    bot.guilds.cache.each(g=>{
-        db
-            .from('servers')
-            .select('*')
-            .match({ id: g.id })
-            .then(d=>{
-                if (!d.data.length) {
-                    db
-                        .from('servers')
-                        .insert([{ id: g.id, get_roles: [], audit: [], language: g.preferredLocale }])
-                        .then(a=>{
-                            console.log(`${g.id} was added to DB`)
-                        })
-                } else {
-                    console.log(`${g.id} is already in DB`)
-                }
-            })
-    })
+    bot.guilds.cache.each(g=>{ refreshGuild(g) })
     console.log(`${bot.user.username} is ready for ${duration}ms`);
 })
 
 bot.on('interactionCreate', async (inter)=>{
-    console.log(inter.commandName)
     data = (await db
         .from('servers')
         .select('*')
@@ -68,6 +50,7 @@ bot.on('interactionCreate', async (inter)=>{
     path = './'
     try {
         if (inter.isCommand()) { path += 'commands/'; }
+        if (inter.isAutocomplete()) { path += 'autocomplete/'; }
         path += inter.commandName + '/'
         try {
             sub = inter.options.getSubcommand()
@@ -91,5 +74,19 @@ bot.on('interactionCreate', async (inter)=>{
                 .catch((err) => handleError(inter, err, getLocalisation(data.language)));
     } catch(err) { handleError(inter, err, getLocalisation(data.language)); }
 });
+
+bot.on('guildMemberAdd', member => {
+    data = (await db
+        .from('servers')
+        .select('*')
+        .match({ id: member.guildId })).data[0]
+
+    role= member.guild.roles.cache.find(role => role.id === data['role-join'])
+    if (role) { 
+        member.roles.add(role);
+    }
+});
+
+client.on("guildCreate", refreshGuild)
 
 bot.login(process.env.token);
