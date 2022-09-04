@@ -5,7 +5,7 @@ module.exports = async () => {
                          .setColor('2617db')
                          .setTitle( `${codes.rules}`)
                          .setThumbnail(bot.user.id)
-                         .setDescription(` ${codes.avatar} \n ${codes.info} \n ${codes.InfoUser} \n ${codes.AutoRoleJoin} \n ${codes.settingsViev} \n 
-                         ${codes.settingsLang} \n ${codes.settingsAutoRoleButtonsAdd} \n ${codes.settingsAutoRoleButtonsDelete} \n ${codes.settingsVerificatinSwitch} \n 
-                         ${codes.settingsVerificationLength} \n ${codes.settingsVerificationSand}`)
+                         .setDescription(` ${codes.help-help} \n ${codes.avatar-help} \n ${codes.info-help} \n ${codes.InfoUser-help} \n ${codes.AutoRoleJoin-help} \n ${codes.settingsViev-help} \n 
+                         ${codes.settingsLang-help} \n ${codes.settingsAutoRoleButtonsAdd-help} \n ${codes.settingsAutoRoleButtonsDelete-help} \n ${codes.settingsVerificatinSwitch-help} \n 
+                         ${codes.settingsVerificationLength-help} \n ${codes.settingsVerificationSand-help}`)
                          ] });
