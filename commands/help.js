@@ -1,4 +1,4 @@
-const { EmbedBuilder, Colors } = require('discord.js')
+const { EmbedBuilder, Colors, MessageEmbed, MessageSelectMenu, MessageActionRow } = require('discord.js')
 
 module.exports = async () => {
   inter.reply({ embeds: [ new EmbedsBuilder()
@@ -9,3 +9,28 @@ module.exports = async () => {
                          ${codes.settingsLang-help} \n ${codes.settingsAutoRoleButtonsAdd-help} \n ${codes.settingsAutoRoleButtonsDelete-help} \n ${codes.settingsVerificatinSwitch-help} \n 
                          ${codes.settingsVerificationLength-help} \n ${codes.settingsVerificationSand-help}`)
                          ] });
+                         const select = new MessageSelectMenu()
+                         .setCustomId("index")
+                         .setPlaceHolder("Ничего")
+                        .addOptions([
+                           {
+                            label: `${codes.info-full}`,
+                            description: `${codes.help-help} \n ${codes.info-help}`,
+                            value: `Первый`
+                           },
+                           {
+                            label: `codes.settings`,
+                            description: `${codes.SettingsAutoRoleJoin-help} \n ${codes.settingsViev-help} \n ${codes.settingsLang-help \n ${codes.settingsAutoRoleButtonsAdd-help} \n ${codes.settingsAutoRoleButtonsDelete-help} \n ${codes.settingsVerificatinSwitch-help} \n 
+                         ${codes.settingsVerificationLength-help} \n ${codes.settingsVerificationSand-help}`,
+                            value: `Второй`
+                           },
+                           {
+                            label: `${codes.utilites}`,
+                            description: `${codes.avatar-help}`,
+                            value: `Третий`
+                           },
+                         ])
+                         
+                         .setMaxValues(1);
+                      });
+                         
